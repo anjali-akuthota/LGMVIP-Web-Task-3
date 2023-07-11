@@ -4,9 +4,9 @@
 * This eliminates the need for page reloads and provides a seamless and interactive registration process.
 
 # Features
-Real-time Data Display  : Display entered registration data instantly on the same page without page reloads.
-Dynamic Form Update     : Utilize modern web technologies to dynamically update the form's content as users input their data.
-Enhanced User Experience: Create a seamless and responsive registration process, allowing users to review and verify their information without interruptions.
+* Real-time Data Display  : Display entered registration data instantly on the same page without page reloads.
+* Dynamic Form Update     : Utilize modern web technologies to dynamically update the form's content as users input their data.
+* Enhanced User Experience: Create a seamless and responsive registration process, allowing users to review and verify their information without interruptions.
 
 # Installation
 * Clone the repository
