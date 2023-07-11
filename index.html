@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Enrollment Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        background-image: url("image.jpg");
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-group input[type="text"],
+      .form-group select {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .form-group select {
+        height: 35px;
+      }
+
+      .form-group button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .form-group button:hover {
+        background-color: #45a049;
+      }
+
+      #enrolledStudent {
+        display: none;
+        background-color: #eaf2f8;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      #enrolledStudent h2 {
+        margin-top: 0;
+      }
+
+      #enrolledStudent p {
+        margin-bottom: 5px;
+      }
+
+      #totalEnrolled {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Enrollment Form</h1>
+      <form id="enrollmentForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="course">Course:</label>
+          <select id="course" required>
+            <option value="">-- Select Course --</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="English">English</option>
+            <option value="History">History</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="semester">Semester:</label>
+          <select id="semester" required>
+            <option value="">-- Select Semester --</option>
+            <option value="1">1st Semester</option>
+            <option value="2">2nd Semester</option>
+            <option value="3">3rd Semester</option>
+            <option value="4">4th Semester</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit">Enroll</button>
+        </div>
+      </form>
+
+      <div id="enrolledStudent">
+        <h2>Enrolled Student Information</h2>
+        <div id="studentList"></div>
+      </div>
+
+      <div id="totalEnrolled"></div>
+
+      <script>
+        const enrollmentForm = document.getElementById("enrollmentForm");
+        const enrolledStudent = document.getElementById("enrolledStudent");
+        const studentList = document.getElementById("studentList");
+        const totalEnrolled = document.getElementById("totalEnrolled");
+        let enrolledCount = 0;
+
+        enrollmentForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const course = document.getElementById("course").value;
+          const semester = document.getElementById("semester").value;
+
+          const studentInfo = document.createElement("div");
+          studentInfo.classList.add("student-info");
+
+          const studentName = document.createElement("p");
+          studentName.innerHTML = `<strong>Name:</strong> ${name}`;
+          studentInfo.appendChild(studentName);
+
+          const studentEmail = document.createElement("p");
+          studentEmail.innerHTML = `<strong>Email:</strong> ${email}`;
+          studentInfo.appendChild(studentEmail);
+
+          const studentCourse = document.createElement("p");
+          studentCourse.innerHTML = `<strong>Course:</strong> ${course}`;
+          studentInfo.appendChild(studentCourse);
+
+          const studentSemester = document.createElement("p");
+          studentSemester.innerHTML = `<strong>Semester:</strong> ${semester}`;
+          studentInfo.appendChild(studentSemester);
+
+          studentList.appendChild(studentInfo);
+
+          const lineBreak = document.createElement("hr");
+          studentList.appendChild(lineBreak); // Add a horizontal line after each student's information
+
+          enrolledCount++;
+          totalEnrolled.textContent = `Total Students Enrolled: ${enrolledCount}`;
+
+          enrollmentForm.reset();
+          enrolledStudent.style.display = "block";
+        });
+      </script>
+    </div>
+  </body>
+</html>
